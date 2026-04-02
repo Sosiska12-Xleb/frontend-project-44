@@ -2,22 +2,32 @@
 import { nameAnswer } from "../src/cli.js"
 import { question } from "../src/brain-quest.js"
 
+const findNod = (a, b) => {
+    while (b !== 0) {
+        let temp = b
+        b = a % b
+        a = temp
+    }
+    return a
+}
+
 const gsd = (name) => {
 
 	console.log('Find the greatest common divisor of given numbers.')
 	
-	if (question('25 50', '25', name) === false) {
-		return
-	}
+	let min = 1              
+	let max = 100
 
-	if (question('100 52', '4', name) === false) {
-		return
-	}
+	for (let i = 0; i < 3; i += 1) {
+		let randomNumOne = Math.floor(Math.random() * (max - min + 1)) + min
+		let randomNumTwo = Math.floor(Math.random() * (max - min + 1)) + min
+		const answer = findNod(randomNumOne, randomNumTwo)
 
-	if (question('3 9', '3', name)  === false) {
-		return
+		if (question(`${randomNumOne} ${randomNumTwo}`, `${answer}`, name) === false) {
+			return 
+		}
 	}
-
+	
 	console.log(`Congratulations, ${name}!`)
 }
 

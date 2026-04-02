@@ -4,18 +4,30 @@ import { question } from "../src/brain-quest.js"
 
 const prime = (name) => {
 
-	console.log('What number is missing in the progression?')
-	
-	if (question('7', 'yes', name) === false) {
-		return
-	}
+	console.log('Answer "yes" if given number is prime. Otherwise answer "no".')
 
-	if (question('284', 'no', name) === false) {
-		return
-	}
+	let min = 1              
+	let max = 100
 
-	if (question('151', 'yes', name)  === false) {
-		return
+	for (let i = 0; i < 3; i += 1) {
+		let randomNum = Math.floor(Math.random() * (max - min + 1)) + min
+		let subAnswer = 'no'
+		if (randomNum >= 2 && randomNum % 2 !== 0) {
+			subAnswer = 'yes'
+			if (randomNum % 3 !== 0 && randomNum !== 3) {
+				for (let i = 5; i < Math.sqrt(randomNum); i += 2) {
+					if (randomNum % i === 0){
+						subAnswer = 'no'
+					}
+				}
+			} else {
+				subAnswer = 'no'
+			}
+		}
+
+		if (question(randomNum, subAnswer, name) === false) {
+			return 
+		}
 	}
 
 	console.log(`Congratulations, ${name}!`)
