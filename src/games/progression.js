@@ -1,8 +1,8 @@
-import { question } from "../brain-quest.js"
+import { question } from '../brain-quest.js'
 
 const progressionMaker = () => {
 	let progressionArr = []
-	let min = 1              
+	let min = 1
 	let max = 100
 	let stepMax = 10
 	let start = Math.floor(Math.random() * (max - min + 1)) + min
@@ -16,7 +16,6 @@ const progressionMaker = () => {
 }
 
 const progression = (name) => {
-
 	console.log('What number is missing in the progression?')
 
 	for (let i = 0; i < 3; i += 1) {
@@ -27,7 +26,7 @@ const progression = (name) => {
 		progressions[outNum] = '..'
 
 		if (question(progressions.join(' '), `${answer}`, name) === false) {
-				return 
+			return
 		}
 	}
 

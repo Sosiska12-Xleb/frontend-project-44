@@ -1,11 +1,10 @@
-import { question } from "../brain-quest.js"
+import { question } from '../brain-quest.js'
 
 const calculator = (name) => {
-
 	console.log('What is the result of the expression?')
 
 	let maxSign = 10
-	let min = 1              
+	let min = 1
 	let max = 100
 
 	for (let i = 0; i < 3; i += 1) {
@@ -25,12 +24,15 @@ const calculator = (name) => {
 			answer = randomNumOne - randomNumTwo
 		}
 
-		if (question(`${randomNumOne} ${sign} ${randomNumTwo}`, `${answer}`, name) === false) {
-			return 
+		if (
+			question(`${randomNumOne} ${sign} ${randomNumTwo}`, `${answer}`, name) ===
+			false
+		) {
+			return
 		}
 	}
 
 	console.log(`Congratulations, ${name}!`)
 }
 
-export{ calculator }
+export { calculator }
