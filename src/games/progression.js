@@ -6,7 +6,7 @@ const progressionMaker = () => {
 	let max = 100
 	let stepMax = 10
 	let start = Math.floor(Math.random() * (max - min + 1)) + min
-	let step = Math.floor(Math.random() * stepMax)
+	let step = Math.floor(Math.random() * stepMax + 1)
 
 	for (let i = 0; i < 10; i += 1) {
 		let currentElement = start + i * step
