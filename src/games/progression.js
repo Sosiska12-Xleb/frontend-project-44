@@ -25,9 +25,8 @@ const progression = (name) => {
 		let outNum = Math.floor(Math.random() * outNumMax)
 		let answer = progressions[outNum]
 		progressions[outNum] = '..'
-		progressions.join(' ')
 
-		if (question(progressions, `${answer}`, name) === false) {
+		if (question(progressions.join(' '), `${answer}`, name) === false) {
 				return 
 		}
 	}
