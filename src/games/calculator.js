@@ -25,8 +25,7 @@ const calculator = (name) => {
 		}
 
 		if (
-			question(`${randomNumOne} ${sign} ${randomNumTwo}`, `${answer}`, name) ===
-			false
+			question(`${randomNumOne} ${sign} ${randomNumTwo}`, `${answer}`, name) === false
 		) {
 			return
 		}
